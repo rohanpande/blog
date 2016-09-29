@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <!-- <h1 class="post-heading"></h1> -->
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title | escape }}
+          </a>
+        </h2>
+        <div class="post-meta">
+          <b class="post__author">
+            {% if post.author %} {{ post.author }} {% endif %}
+          </b>
+          <b class="post__sep">.</b>
+          <b class="post__date">
+            {{ post.date | date: "%b %-d, %Y" }}
+          </b>
+        </div>
+        {{ post.excerpt }}
+        <a href="{{ post.url | prepend:site.baseurl }}" class="btn-default">Read more</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
